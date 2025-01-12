@@ -1,0 +1,879 @@
+# Gerekli kütüphaneleri yükle
+> packages <- c("GEOquery", "limma", "ggplot2", "pheatmap", "dplyr")
+> installed <- packages %in% installed.packages()
+> if (any(!installed)) install.packages(packages[!installed])
+> lapply(packages, library, character.only = TRUE)
+Zorunlu paket yükleniyor: Biobase
+Zorunlu paket yükleniyor: BiocGenerics
+
+Attaching package: 'BiocGenerics'
+
+The following object is masked from 'package:limma':
+
+    plotMA
+
+The following objects are masked from 'package:lubridate':
+
+    intersect, setdiff, union
+
+The following objects are masked from 'package:stats':
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from 'package:base':
+
+    Filter, Find, Map, Position, Reduce, anyDuplicated, aperm, append, as.data.frame, basename,
+    cbind, colnames, dirname, do.call, duplicated, eval, evalq, get, grep, grepl, intersect,
+    is.unsorted, lapply, mapply, match, mget, order, paste, pmax, pmax.int, pmin, pmin.int, rank,
+    rbind, rownames, sapply, setdiff, sort, table, tapply, union, unique, unsplit, which.max,
+    which.min
+
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with 'browseVignettes()'. To cite Bioconductor,
+    see 'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Setting options('download.file.method.GEOquery'='auto')
+Setting options('GEOquery.inmemory.gpl'=FALSE)
+
+Attaching package: 'dplyr'
+
+The following object is masked from 'package:Biobase':
+
+    combine
+
+The following objects are masked from 'package:BiocGenerics':
+
+    combine, intersect, setdiff, union
+
+The following object is masked from 'package:testthat':
+
+    matches
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+[[1]]
+ [1] "GEOquery"     "Biobase"      "BiocGenerics" "limma"        "testthat"     "lubridate"    "purrr"       
+ [8] "stats"        "graphics"     "grDevices"    "utils"        "datasets"     "methods"      "base"        
+
+[[2]]
+ [1] "GEOquery"     "Biobase"      "BiocGenerics" "limma"        "testthat"     "lubridate"    "purrr"       
+ [8] "stats"        "graphics"     "grDevices"    "utils"        "datasets"     "methods"      "base"        
+
+[[3]]
+ [1] "ggplot2"      "GEOquery"     "Biobase"      "BiocGenerics" "limma"        "testthat"     "lubridate"   
+ [8] "purrr"        "stats"        "graphics"     "grDevices"    "utils"        "datasets"     "methods"     
+[15] "base"        
+
+[[4]]
+ [1] "pheatmap"     "ggplot2"      "GEOquery"     "Biobase"      "BiocGenerics" "limma"        "testthat"    
+ [8] "lubridate"    "purrr"        "stats"        "graphics"     "grDevices"    "utils"        "datasets"    
+[15] "methods"      "base"        
+
+[[5]]
+ [1] "dplyr"        "pheatmap"     "ggplot2"      "GEOquery"     "Biobase"      "BiocGenerics" "limma"       
+ [8] "testthat"     "lubridate"    "purrr"        "stats"        "graphics"     "grDevices"    "utils"       
+[15] "datasets"     "methods"      "base"        
+
+Warning messages:
+1: package 'ggplot2' was built under R version 4.3.3 
+2: package 'pheatmap' was built under R version 4.3.3 
+3: package 'dplyr' was built under R version 4.3.3 
+> 
+> # Çalışma dizinini ayarla
+> setwd("C:/Users/User/Desktop")  # Masaüstü konumunuza göre ayarlayın
+> 
+> # Paketleri yeniden yükle ve kur
+> install.packages(c("ggplot2", "pheatmap", "dplyr"))
+Error in install.packages : Updating loaded packages
+> 
+
+Restarting R session...
+
+> install.packages(c("ggplot2", "pheatmap", "dplyr"))
+WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing packages into ‘C:/Users/User/AppData/Local/R/win-library/4.3’
+(as ‘lib’ is unspecified)
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/ggplot2_3.5.1.zip' deneniyor
+Content type 'application/zip' length 4961189 bytes (4.7 MB)
+downloaded 4.7 MB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/pheatmap_1.0.12.zip' deneniyor
+Content type 'application/zip' length 79345 bytes (77 KB)
+downloaded 77 KB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/dplyr_1.1.4.zip' deneniyor
+Content type 'application/zip' length 1563245 bytes (1.5 MB)
+downloaded 1.5 MB
+
+package ‘ggplot2’ successfully unpacked and MD5 sums checked
+package ‘pheatmap’ successfully unpacked and MD5 sums checked
+package ‘dplyr’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\User\AppData\Local\Temp\RtmpAbiUIT\downloaded_packages
+> # Gerekli kütüphaneleri yükle
+> library(ggplot2)
+Warning message:
+package ‘ggplot2’ was built under R version 4.3.3 
+> library(pheatmap)
+Warning message:
+package ‘pheatmap’ was built under R version 4.3.3 
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘dplyr’ was built under R version 4.3.3 
+> install.packages("ggplot2", type = "source")
+Error in install.packages : Updating loaded packages
+> install.packages("pheatmap", type = "source")
+Error in install.packages : Updating loaded packages
+> install.packages("dplyr", type = "source")
+Error in install.packages : Updating loaded packages
+> 
+
+Restarting R session...
+
+> install.packages("dplyr", type = "source")
+WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing package into ‘C:/Users/User/AppData/Local/R/win-library/4.3’
+(as ‘lib’ is unspecified)
+URL 'https://cran.rstudio.com/src/contrib/dplyr_1.1.4.tar.gz' deneniyor
+Content type 'application/x-gzip' length 1207521 bytes (1.2 MB)
+downloaded 1.2 MB
+
+* installing *source* package 'dplyr' ...
+** package 'dplyr' successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+Error in system(paste(MAKE, p1(paste("-f", shQuote(makefiles))), "compilers"),  : 
+  'make' not found
+* removing 'C:/Users/User/AppData/Local/R/win-library/4.3/dplyr'
+* restoring previous 'C:/Users/User/AppData/Local/R/win-library/4.3/dplyr'
+Warning in install.packages :
+  installation of package ‘dplyr’ had non-zero exit status
+
+The downloaded source packages are in
+	‘C:\Users\User\AppData\Local\Temp\RtmpAt1NRA\downloaded_packages’
+
+Restarting R session...
+
+> install.packages("ggplot2", type = "source")
+WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing package into ‘C:/Users/User/AppData/Local/R/win-library/4.3’
+(as ‘lib’ is unspecified)
+URL 'https://cran.rstudio.com/src/contrib/ggplot2_3.5.1.tar.gz' deneniyor
+Content type 'application/x-gzip' length 3604371 bytes (3.4 MB)
+downloaded 3.4 MB
+
+* installing *source* package 'ggplot2' ...
+** package 'ggplot2' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (ggplot2)
+
+The downloaded source packages are in
+	‘C:\Users\User\AppData\Local\Temp\RtmpkDHWBN\downloaded_packages’
+> 
+> 
+> 
+> 
+> # GEOquery kullanarak dosyaları yükle
+> gse1 <- getGEO(filename = "GSE58951_series_matrix.txt.gz")
+Error in getGEO(filename = "GSE58951_series_matrix.txt.gz") : 
+  "getGEO" fonksiyonu bulunamadı
+> 
+> 
+> if (!requireNamespace("BiocManager", quietly = TRUE)) {
++     install.packages("BiocManager")
++ }
+> BiocManager::install("GEOquery")
+'getOption("repos")' replaces Bioconductor standard repositories, see 'help("repositories", package =
+"BiocManager")' for details.
+Replacement repositories:
+    CRAN: https://cran.rstudio.com/
+Bioconductor version 3.18 (BiocManager 1.30.25), R 4.3.2 (2023-10-31 ucrt)
+Old packages: 'cli', 'evaluate', 'glue', 'lme4', 'mvtnorm', 'openssl', 'processx', 'QuickJSR',
+  'RcppArmadillo', 'rlang', 'spatstat.explore', 'spatstat.utils', 'stringdist', 'rpart'
+Update all/some/none? [a/s/n]: 
+Update all/some/none? [a/s/n]: 
+a
+also installing the dependencies ‘rbibutils’, ‘Rdpack’, ‘reformulas’
+
+
+  There are binary versions available but the source versions are later:
+                binary   source needs_compilation
+lme4          1.1-35.5   1.1-36              TRUE
+RcppArmadillo 14.0.2-1 14.2.2-1              TRUE
+
+  Binaries will be installed
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/rbibutils_2.3.zip' deneniyor
+Content type 'application/zip' length 1028542 bytes (1004 KB)
+downloaded 1004 KB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/Rdpack_2.6.2.zip' deneniyor
+Content type 'application/zip' length 752212 bytes (734 KB)
+downloaded 734 KB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/reformulas_0.4.0.zip' deneniyor
+Content type 'application/zip' length 93521 bytes (91 KB)
+downloaded 91 KB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/cli_3.6.3.zip' deneniyor
+Content type 'application/zip' length 1343675 bytes (1.3 MB)
+downloaded 1.3 MB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/evaluate_1.0.3.zip' deneniyor
+Content type 'application/zip' length 102337 bytes (99 KB)
+downloaded 99 KB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/glue_1.8.0.zip' deneniyor
+Content type 'application/zip' length 181803 bytes (177 KB)
+downloaded 177 KB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/lme4_1.1-35.5.zip' deneniyor
+Content type 'application/zip' length 4556903 bytes (4.3 MB)
+downloaded 4.3 MB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/mvtnorm_1.3-3.zip' deneniyor
+Content type 'application/zip' length 953817 bytes (931 KB)
+downloaded 931 KB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/openssl_2.3.1.zip' deneniyor
+Content type 'application/zip' length 3212738 bytes (3.1 MB)
+downloaded 3.1 MB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/processx_3.8.5.zip' deneniyor
+Content type 'application/zip' length 686955 bytes (670 KB)
+downloaded 670 KB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/QuickJSR_1.5.1.zip' deneniyor
+Content type 'application/zip' length 1283487 bytes (1.2 MB)
+downloaded 1.2 MB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/RcppArmadillo_14.0.2-1.zip' deneniyor
+Content type 'application/zip' length 2045714 bytes (2.0 MB)
+downloaded 2.0 MB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/rlang_1.1.4.zip' deneniyor
+Content type 'application/zip' length 1587959 bytes (1.5 MB)
+downloaded 1.5 MB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/spatstat.explore_3.3-4.zip' deneniyor
+Content type 'application/zip' length 3243308 bytes (3.1 MB)
+downloaded 3.1 MB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/spatstat.utils_3.1-2.zip' deneniyor
+Content type 'application/zip' length 397388 bytes (388 KB)
+downloaded 388 KB
+
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/stringdist_0.9.15.zip' deneniyor
+Content type 'application/zip' length 694589 bytes (678 KB)
+downloaded 678 KB
+
+package ‘rbibutils’ successfully unpacked and MD5 sums checked
+package ‘Rdpack’ successfully unpacked and MD5 sums checked
+package ‘reformulas’ successfully unpacked and MD5 sums checked
+package ‘cli’ successfully unpacked and MD5 sums checked
+Warning: cannot remove prior installation of package ‘cli’
+Warning: restored ‘cli’
+package ‘evaluate’ successfully unpacked and MD5 sums checked
+package ‘glue’ successfully unpacked and MD5 sums checked
+Warning: cannot remove prior installation of package ‘glue’
+Warning: restored ‘glue’
+package ‘lme4’ successfully unpacked and MD5 sums checked
+package ‘mvtnorm’ successfully unpacked and MD5 sums checked
+package ‘openssl’ successfully unpacked and MD5 sums checked
+package ‘processx’ successfully unpacked and MD5 sums checked
+package ‘QuickJSR’ successfully unpacked and MD5 sums checked
+package ‘RcppArmadillo’ successfully unpacked and MD5 sums checked
+package ‘rlang’ successfully unpacked and MD5 sums checked
+Warning: cannot remove prior installation of package ‘rlang’
+Warning: restored ‘rlang’
+package ‘spatstat.explore’ successfully unpacked and MD5 sums checked
+package ‘spatstat.utils’ successfully unpacked and MD5 sums checked
+package ‘stringdist’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\User\AppData\Local\Temp\RtmpkDHWBN\downloaded_packages
+URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/rpart_4.1.24.zip' deneniyor
+Content type 'application/zip' length 711609 bytes (694 KB)
+downloaded 694 KB
+
+package ‘rpart’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\User\AppData\Local\Temp\RtmpkDHWBN\downloaded_packages
+Warning messages:
+1: package(s) not installed when version(s) same as or greater than current; use `force = TRUE` to re-install:
+  'GEOquery' 
+2: In file.copy(savedcopy, lib, recursive = TRUE) :
+  problem copying C:\Users\User\AppData\Local\R\win-library\4.3\00LOCK\cli\libs\x64\cli.dll to C:\Users\User\AppData\Local\R\win-library\4.3\cli\libs\x64\cli.dll: Permission denied
+3: In file.copy(savedcopy, lib, recursive = TRUE) :
+  problem copying C:\Users\User\AppData\Local\R\win-library\4.3\00LOCK\glue\libs\x64\glue.dll to C:\Users\User\AppData\Local\R\win-library\4.3\glue\libs\x64\glue.dll: Permission denied
+4: In file.copy(savedcopy, lib, recursive = TRUE) :
+  problem copying C:\Users\User\AppData\Local\R\win-library\4.3\00LOCK\rlang\libs\x64\rlang.dll to C:\Users\User\AppData\Local\R\win-library\4.3\rlang\libs\x64\rlang.dll: Permission denied
+> 
+> 
+> 
+> 
+> library(GEOquery)
+Zorunlu paket yükleniyor: Biobase
+Zorunlu paket yükleniyor: BiocGenerics
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind, colnames, dirname, do.call,
+    duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect, is.unsorted, lapply, Map,
+    mapply, match, mget, order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
+    Reduce, rownames, sapply, setdiff, sort, table, tapply, union, unique, unsplit, which.max,
+    which.min
+
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with 'browseVignettes()'. To cite Bioconductor,
+    see 'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+> 
+> gse1 <- getGEO(filename = "GSE58951_series_matrix.txt.gz")
+|--------------------------------------------------|
+|==================================================|
+> 
+> # GEOquery kullanarak dosyaları yükle
+> gse1 <- getGEO(filename = "GSE58951_series_matrix.txt.gz")
+Using locally cached version of GPL6801 found here:
+C:\Users\User\AppData\Local\Temp\RtmpkDHWBN/GPL6801.soft.gz 
+> gse2 <- getGEO(filename = "GSE76016_series_matrix.txt.gz")
+Timeout was reached [www.ncbi.nlm.nih.gov]: Operation timed out after 120014 milliseconds with 82132407 bytes receivedFile stored at:
+C:\Users\User\AppData\Local\Temp\RtmpkDHWBN/GPL21243.soft.gz
+Error in downloadFile(myurl, destfile, mode = mode, quiet = TRUE) : 
+  Failed to download C:\Users\User\AppData\Local\Temp\RtmpkDHWBN/GPL21243.soft.gz!
+> 
+> gse1 <- getGEO(filename = "GSE58951_series_matrix.txt.gz")
+Using locally cached version of GPL6801 found here:
+C:\Users\User\AppData\Local\Temp\RtmpkDHWBN/GPL6801.soft.gz 
+> 
+> gse2 <- getGEO(filename = "GSE76016_series_matrix.txt.gz")
+Timeout was reached [www.ncbi.nlm.nih.gov]: Operation timed out after 120000 milliseconds with 75762277 bytes receivedFile stored at:
+C:\Users\User\AppData\Local\Temp\RtmpkDHWBN/GPL21243.soft.gz
+Error in downloadFile(myurl, destfile, mode = mode, quiet = TRUE) : 
+  Failed to download C:\Users\User\AppData\Local\Temp\RtmpkDHWBN/GPL21243.soft.gz!
+> options(timeout = 300)  # Süreyi 300 saniyeye çıkarın (5 dakika)
+> gse2 <- getGEO(filename = "GSE76016_series_matrix.txt.gz")
+Timeout was reached [www.ncbi.nlm.nih.gov]: Operation timed out after 120012 milliseconds with 53936980 bytes receivedFile stored at:
+C:\Users\User\AppData\Local\Temp\RtmpkDHWBN/GPL21243.soft.gz
+Error in downloadFile(myurl, destfile, mode = mode, quiet = TRUE) : 
+  Failed to download C:\Users\User\AppData\Local\Temp\RtmpkDHWBN/GPL21243.soft.gz!
+> Sys.setenv("GEOquery.download.file.method.GEOquery" = "auto")  # GEOquery için indirme yöntemi
+> gse2 <- getGEO(filename = "GSE76016_series_matrix.txt.gz")
+Timeout was reached [www.ncbi.nlm.nih.gov]: Operation timed out after 120012 milliseconds with 55521872 bytes receivedFile stored at:
+C:\Users\User\AppData\Local\Temp\RtmpkDHWBN/GPL21243.soft.gz
+Error in downloadFile(myurl, destfile, mode = mode, quiet = TRUE) : 
+  Failed to download C:\Users\User\AppData\Local\Temp\RtmpkDHWBN/GPL21243.soft.gz!
+> setwd("C:/Users/User/Desktop/GSE76016_series_matrix.txt.gz")  # Masaüstünü çalışma dizini yap                library(GEOquery)
+Error in setwd("C:/Users/User/Desktop/GSE76016_series_matrix.txt.gz") : 
+  çalışma dizini değiştirilemiyor
+> setwd("C:/Users/User/Desktop/GSE76016_series_matrix")  # Masaüstünü çalışma dizini yap                library(GEOquery) 
+Error in setwd("C:/Users/User/Desktop/GSE76016_series_matrix") : 
+  çalışma dizini değiştirilemiyor
+> 
+> 
+> 
+> 
+> 
+> exprs_data <- exprs(gse2)
+Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument 'object' in selecting a method for function 'exprs': 'gse2' nesnesi bulunamadı
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> library(GEOquery)
+> 
+> # GSE76016 dosyasını manuel olarak masaüstüne indirdiğinizi varsayıyorum
+> gse2 <- getGEO(filename = "C:/Users/User/Desktop/GSE76016_series_matrix.txt.gz")
+Error in fileOpen(fname) : 
+  File C:/Users/User/Desktop/GSE76016_series_matrix.txt.gz does not appear to exist.
+> library(GEOquery)
+> 
+> # GSE76016 dosyasını manuel olarak masaüstüne indirdiğinizi varsayıyorum
+> gse2 <- getGEO(filename = "C:/Users/User/Desktop/GSE76016_series_matrix.txt")
+|--------------------------------------------------|
+|==================================================|
+|--------------------------------------------------|
+|==================================================|
+> 
+> # Dosya yüklendikten sonra veriyi kontrol et
+> exprs_data <- exprs(gse2)  # Gen ifadeleri matrisi
+> sample_info <- pData(gse2)  # Örnek bilgileri
+> head(exprs_data)
+     GSM1972543 GSM1972544 GSM1972545 GSM1972546 GSM1972547 GSM1972548 GSM1972549 GSM1972550 GSM1972551
+     GSM1972552 GSM1972553 GSM1972554 GSM1972555 GSM1972556 GSM1972557 GSM1972558 GSM1972559 GSM1972560
+     GSM1972561 GSM1972562 GSM1972563 GSM1972564 GSM1972565 GSM1972566 GSM1972567 GSM1972568 GSM1972569
+     GSM1972570 GSM1972571 GSM1972572 GSM1972573 GSM1972574 GSM1972575 GSM1972576 GSM1972577 GSM1972578
+     GSM1972579 GSM1972580 GSM1972581 GSM1972582 GSM1972583 GSM1972584 GSM1972585 GSM1972586 GSM1972587
+     GSM1972588 GSM1972589 GSM1972590 GSM1972591 GSM1972592 GSM1972593 GSM1972594 GSM1972595 GSM1972596
+     GSM1972597 GSM1972598 GSM1972599 GSM1972600 GSM1972601 GSM1972602 GSM1972603 GSM1972604 GSM1972605
+     GSM1972606 GSM1972607 GSM1972608 GSM1972609 GSM1972610 GSM1972611 GSM1972612 GSM1972613 GSM1972614
+     GSM1972615 GSM1972616 GSM1972617 GSM1972618 GSM1972619 GSM1972620 GSM1972621 GSM1972622 GSM1972623
+     GSM1972624 GSM1972625 GSM1972626 GSM1972627 GSM1972628 GSM1972629 GSM1972630 GSM1972631 GSM1972632
+     GSM1972633 GSM1972634 GSM1972635 GSM1972636 GSM1972637 GSM1972638 GSM1972639 GSM1972640 GSM1972641
+     GSM1972642 GSM1972643 GSM1972644 GSM1972645 GSM1972646 GSM1972647 GSM1972648 GSM1972649 GSM1972650
+     GSM1972651 GSM1972652 GSM1972653 GSM1972654 GSM1972655 GSM1972656 GSM1972657 GSM1972658 GSM1972659
+     GSM1972660 GSM1972661 GSM1972662 GSM1972663 GSM1972664 GSM1972665 GSM1972666 GSM1972667 GSM1972668
+     GSM1972669 GSM1972670 GSM1972671 GSM1972672 GSM1972673 GSM1972674 GSM1972675 GSM1972676 GSM1972677
+     GSM1972678 GSM1972679 GSM1972680 GSM1972681 GSM1972682 GSM1972683 GSM1972684 GSM1972685 GSM1972686
+     GSM1972687 GSM1972688 GSM1972689 GSM1972690 GSM1972691 GSM1972692 GSM1972693 GSM1972694 GSM1972695
+     GSM1972696 GSM1972697 GSM1972698 GSM1972699 GSM1972700 GSM1972701 GSM1972702 GSM1972703 GSM1972704
+     GSM1972705 GSM1972706 GSM1972707 GSM1972708 GSM1972709 GSM1972710 GSM1972711 GSM1972712 GSM1972713
+     GSM1972714 GSM1972715 GSM1972716 GSM1972717 GSM1972718 GSM1972719 GSM1972720 GSM1972721 GSM1972722
+     GSM1972723 GSM1972724 GSM1972725 GSM1972726 GSM1972727 GSM1972728 GSM1972729 GSM1972730 GSM1972731
+     GSM1972732 GSM1972733 GSM1972734 GSM1972735 GSM1972736 GSM1972737 GSM1972738 GSM1972739 GSM1972740
+     GSM1972741 GSM1972742 GSM1972743 GSM1972744 GSM1972745 GSM1972746 GSM1972747 GSM1972748 GSM1972749
+     GSM1972750 GSM1972751 GSM1972752 GSM1972753 GSM1972754 GSM1972755 GSM1972756 GSM1972757 GSM1972758
+     GSM1972759 GSM1972760 GSM1972761 GSM1972762 GSM1972763 GSM1972764 GSM1972765 GSM1972766 GSM1972767
+     GSM1972768 GSM1972769 GSM1972770 GSM1972771 GSM1972772 GSM1972773 GSM1972774 GSM1972775 GSM1972776
+     GSM1972777 GSM1972778 GSM1972779 GSM1972780 GSM1972781 GSM1972782 GSM1972783 GSM1972784 GSM1972785
+     GSM1972786 GSM1972787 GSM1972788 GSM1972789 GSM1972790 GSM1972791 GSM1972792 GSM1972793 GSM1972794
+     GSM1972795 GSM1972796 GSM1972797 GSM1972798 GSM1972799 GSM1972800 GSM1972801 GSM1972802 GSM1972803
+     GSM1972804 GSM1972805 GSM1972806 GSM1972807 GSM1972808 GSM1972809 GSM1972810 GSM1972811 GSM1972812
+     GSM1972813 GSM1972814 GSM1972815 GSM1972816 GSM1972817 GSM1972818 GSM1972819 GSM1972820 GSM1972821
+     GSM1972822 GSM1972823 GSM1972824 GSM1972825 GSM1972826 GSM1972827 GSM1972828 GSM1972829 GSM1972830
+     GSM1972831 GSM1972832 GSM1972833 GSM1972834 GSM1972835 GSM1972836 GSM1972837 GSM1972838 GSM1972839
+     GSM1972840 GSM1972841 GSM1972842 GSM1972843 GSM1972844 GSM1972845 GSM1972846 GSM1972847 GSM1972848
+     GSM1972849 GSM1972850 GSM1972851 GSM1972852 GSM1972853 GSM1972854 GSM1972855 GSM1972856 GSM1972857
+> head(sample_info)
+                                title geo_accession                status submission_date last_update_date
+GSM1972543 Scripps registry control_1    GSM1972543 Public on Dec 04 2021     Dec 15 2015      Dec 04 2021
+GSM1972544 Scripps registry control_2    GSM1972544 Public on Dec 04 2021     Dec 15 2015      Dec 04 2021
+GSM1972545 Scripps registry control_3    GSM1972545 Public on Dec 04 2021     Dec 15 2015      Dec 04 2021
+GSM1972546 Scripps registry control_4    GSM1972546 Public on Dec 04 2021     Dec 15 2015      Dec 04 2021
+GSM1972547 Scripps registry control_5    GSM1972547 Public on Dec 04 2021     Dec 15 2015      Dec 04 2021
+GSM1972548 Scripps registry control_6    GSM1972548 Public on Dec 04 2021     Dec 15 2015      Dec 04 2021
+              type channel_count source_name_ch1 organism_ch1 characteristics_ch1 characteristics_ch1.1
+GSM1972543 genomic             1         control Homo sapiens     sample id: 1340    diagnosis: healthy
+GSM1972544 genomic             1         control Homo sapiens     sample id: 2081    diagnosis: healthy
+GSM1972545 genomic             1         control Homo sapiens     sample id: 2225    diagnosis: healthy
+GSM1972546 genomic             1         control Homo sapiens     sample id: 2226    diagnosis: healthy
+GSM1972547 genomic             1         control Homo sapiens     sample id: 2358    diagnosis: healthy
+GSM1972548 genomic             1         control Homo sapiens     sample id: 2374    diagnosis: healthy
+                                                                                            growth_protocol_ch1
+GSM1972543 EDTA Blood was collected and white blood cells were separated by centrifuge in the presence of Ficol
+GSM1972544 EDTA Blood was collected and white blood cells were separated by centrifuge in the presence of Ficol
+GSM1972545 EDTA Blood was collected and white blood cells were separated by centrifuge in the presence of Ficol
+GSM1972546 EDTA Blood was collected and white blood cells were separated by centrifuge in the presence of Ficol
+GSM1972547 EDTA Blood was collected and white blood cells were separated by centrifuge in the presence of Ficol
+GSM1972548 EDTA Blood was collected and white blood cells were separated by centrifuge in the presence of Ficol
+           molecule_ch1                                            extract_protocol_ch1 label_ch1
+GSM1972543  genomic DNA DNA were extracted from white blood cells using commercial kit.    biotin
+GSM1972544  genomic DNA DNA were extracted from white blood cells using commercial kit.    biotin
+GSM1972545  genomic DNA DNA were extracted from white blood cells using commercial kit.    biotin
+GSM1972546  genomic DNA DNA were extracted from white blood cells using commercial kit.    biotin
+GSM1972547  genomic DNA DNA were extracted from white blood cells using commercial kit.    biotin
+GSM1972548  genomic DNA DNA were extracted from white blood cells using commercial kit.    biotin
+           label_protocol_ch1 taxid_ch1
+GSM1972543       not provided      9606
+GSM1972544       not provided      9606
+GSM1972545       not provided      9606
+GSM1972546       not provided      9606
+GSM1972547       not provided      9606
+GSM1972548       not provided      9606
+                                                                                                                                            hyb_protocol
+GSM1972543 Samples were hybridized with Axiom® Exome Genotyping Array (Affymetrix) and scanned at DNA Core Laboratory of the Scripps Research Institute.
+GSM1972544 Samples were hybridized with Axiom® Exome Genotyping Array (Affymetrix) and scanned at DNA Core Laboratory of the Scripps Research Institute.
+GSM1972545 Samples were hybridized with Axiom® Exome Genotyping Array (Affymetrix) and scanned at DNA Core Laboratory of the Scripps Research Institute.
+GSM1972546 Samples were hybridized with Axiom® Exome Genotyping Array (Affymetrix) and scanned at DNA Core Laboratory of the Scripps Research Institute.
+GSM1972547 Samples were hybridized with Axiom® Exome Genotyping Array (Affymetrix) and scanned at DNA Core Laboratory of the Scripps Research Institute.
+GSM1972548 Samples were hybridized with Axiom® Exome Genotyping Array (Affymetrix) and scanned at DNA Core Laboratory of the Scripps Research Institute.
+                                                                                   scan_protocol
+GSM1972543 Array scanning was performed according to the manufacturer's instruction (Affymetrix)
+GSM1972544 Array scanning was performed according to the manufacturer's instruction (Affymetrix)
+GSM1972545 Array scanning was performed according to the manufacturer's instruction (Affymetrix)
+GSM1972546 Array scanning was performed according to the manufacturer's instruction (Affymetrix)
+GSM1972547 Array scanning was performed according to the manufacturer's instruction (Affymetrix)
+GSM1972548 Array scanning was performed according to the manufacturer's instruction (Affymetrix)
+                                                                                                             data_processing
+GSM1972543 The genotype for each SNP for each subject was determined using the Affymetrix Genotyping Console (version 4.1.4)
+GSM1972544 The genotype for each SNP for each subject was determined using the Affymetrix Genotyping Console (version 4.1.4)
+GSM1972545 The genotype for each SNP for each subject was determined using the Affymetrix Genotyping Console (version 4.1.4)
+GSM1972546 The genotype for each SNP for each subject was determined using the Affymetrix Genotyping Console (version 4.1.4)
+GSM1972547 The genotype for each SNP for each subject was determined using the Affymetrix Genotyping Console (version 4.1.4)
+GSM1972548 The genotype for each SNP for each subject was determined using the Affymetrix Genotyping Console (version 4.1.4)
+           platform_id     contact_name        contact_email              contact_institute
+GSM1972543    GPL21243 Hiroshi,,Deguchi dhiroshi@scripps.edu The Scripps Research Institute
+GSM1972544    GPL21243 Hiroshi,,Deguchi dhiroshi@scripps.edu The Scripps Research Institute
+GSM1972545    GPL21243 Hiroshi,,Deguchi dhiroshi@scripps.edu The Scripps Research Institute
+GSM1972546    GPL21243 Hiroshi,,Deguchi dhiroshi@scripps.edu The Scripps Research Institute
+GSM1972547    GPL21243 Hiroshi,,Deguchi dhiroshi@scripps.edu The Scripps Research Institute
+GSM1972548    GPL21243 Hiroshi,,Deguchi dhiroshi@scripps.edu The Scripps Research Institute
+                   contact_address contact_city contact_state contact_zip/postal_code contact_country
+GSM1972543 10550 N Torrey pines Rd     La Jolla            Ca                   92037             USA
+GSM1972544 10550 N Torrey pines Rd     La Jolla            Ca                   92037             USA
+GSM1972545 10550 N Torrey pines Rd     La Jolla            Ca                   92037             USA
+GSM1972546 10550 N Torrey pines Rd     La Jolla            Ca                   92037             USA
+GSM1972547 10550 N Torrey pines Rd     La Jolla            Ca                   92037             USA
+GSM1972548 10550 N Torrey pines Rd     La Jolla            Ca                   92037             USA
+                                                                                                                       supplementary_file
+GSM1972543 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972543/suppl/GSM1972543_041013_HD_1340_AxiomExome319_B02.AxiomGT1.chp.gz
+GSM1972544 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972544/suppl/GSM1972544_041013_HD_2081_AxiomExome319_F01.AxiomGT1.chp.gz
+GSM1972545 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972545/suppl/GSM1972545_041013_HD_2225_AxiomExome319_A08.AxiomGT1.chp.gz
+GSM1972546 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972546/suppl/GSM1972546_041013_HD_2226_AxiomExome319_A06.AxiomGT1.chp.gz
+GSM1972547 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972547/suppl/GSM1972547_041013_HD_2358_AxiomExome319_A05.AxiomGT1.chp.gz
+GSM1972548 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972548/suppl/GSM1972548_041013_HD_2374_AxiomExome319_A11.AxiomGT1.chp.gz
+                                                                                                                         supplementary_file.1
+GSM1972543 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972543/suppl/GSM1972543_041013_HD_1340_AxiomExome319_B02.AxiomGT1.chp.txt.gz
+GSM1972544 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972544/suppl/GSM1972544_041013_HD_2081_AxiomExome319_F01.AxiomGT1.chp.txt.gz
+GSM1972545 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972545/suppl/GSM1972545_041013_HD_2225_AxiomExome319_A08.AxiomGT1.chp.txt.gz
+GSM1972546 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972546/suppl/GSM1972546_041013_HD_2226_AxiomExome319_A06.AxiomGT1.chp.txt.gz
+GSM1972547 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972547/suppl/GSM1972547_041013_HD_2358_AxiomExome319_A05.AxiomGT1.chp.txt.gz
+GSM1972548 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1972nnn/GSM1972548/suppl/GSM1972548_041013_HD_2374_AxiomExome319_A11.AxiomGT1.chp.txt.gz
+           data_row_count diagnosis:ch1 sample id:ch1
+GSM1972543              0       healthy          1340
+GSM1972544              0       healthy          2081
+GSM1972545              0       healthy          2225
+GSM1972546              0       healthy          2226
+GSM1972547              0       healthy          2358
+GSM1972548              0       healthy          2374
+> 
+> # GSE58951 için ilk 50 genin korelasyon matrisi
+> cor_matrix <- cor(t(exprs1[1:50, ]))  # İlk 50 gen
+Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument 'x' in selecting a method for function 't': 'exprs1' nesnesi bulunamadı
+> 
+> 
+> 
+> # GSE58951 yükleme
+> gse1 <- getGEO(filename = "GSE58951_series_matrix.txt")
+Using locally cached version of GPL6801 found here:
+C:\Users\User\AppData\Local\Temp\RtmpkDHWBN/GPL6801.soft.gz 
+> 
+> # Gen ifadeleri matrisini çıkartın
+> exprs1 <- exprs(gse1)
+> 
+> dim(exprs1)       # Matrisin boyutlarını kontrol et
+[1] 909622     22
+> head(exprs1)      # İlk birkaç satırı görüntüle
+                  GSM1422871 GSM1422872 GSM1422873 GSM1422874 GSM1422875 GSM1422876 GSM1422877 GSM1422878
+AFFX-SNP_10000979 "BB"       "AA"       "AA"       "AA"       "AB"       "AA"       "AB"       "AB"      
+AFFX-SNP_10009702 "AB"       "AB"       "AB"       "AB"       "AA"       "AA"       "AA"       "AB"      
+AFFX-SNP_10015773 "AB"       "AB"       "AB"       "AA"       "AA"       "BB"       "AB"       "AB"      
+AFFX-SNP_10021569 "AA"       "AA"       "AA"       "AA"       "AA"       "AA"       "AA"       "AA"      
+AFFX-SNP_10026879 "AA"       "BB"       "AA"       "BB"       "AB"       "BB"       "AB"       "BB"      
+AFFX-SNP_10029725 "AA"       "AA"       "AB"       "BB"       "AB"       "AA"       "AB"       "AB"      
+                  GSM1422879 GSM1422880 GSM1422881 GSM1422882 GSM1422883 GSM1422884 GSM1422885 GSM1422886
+AFFX-SNP_10000979 "BB"       "BB"       "AB"       "AA"       "AB"       "AB"       "AA"       "AA"      
+AFFX-SNP_10009702 "AB"       "AB"       "AB"       "AA"       "AB"       "AB"       "AB"       "AB"      
+AFFX-SNP_10015773 "AB"       "AA"       "AB"       "AB"       "AA"       "AA"       "AA"       "AA"      
+AFFX-SNP_10021569 "AA"       "AA"       "AA"       "AA"       "AA"       "AA"       "NC"       "AA"      
+AFFX-SNP_10026879 "AB"       "BB"       "BB"       "BB"       "BB"       "AB"       "AB"       "BB"      
+AFFX-SNP_10029725 "AA"       "AA"       "BB"       "AB"       "BB"       "AB"       "AA"       "AB"      
+                  GSM1422887 GSM1422888 GSM1422889 GSM1422890 GSM1422891 GSM1422892
+AFFX-SNP_10000979 "AB"       "AA"       "AB"       "AA"       "AA"       "AB"      
+AFFX-SNP_10009702 "BB"       "AB"       "AB"       "AB"       "AB"       "BB"      
+AFFX-SNP_10015773 "AA"       "AB"       "AA"       "AB"       "BB"       "AB"      
+AFFX-SNP_10021569 "AA"       "AA"       "AA"       "AA"       "AA"       "AA"      
+AFFX-SNP_10026879 "BB"       "BB"       "BB"       "BB"       "AB"       "BB"      
+AFFX-SNP_10029725 "AB"       "AA"       "BB"       "AA"       "AB"       "AB"      
+> 
+> # İlk 50 genin korelasyon matrisi
+> cor_matrix <- cor(t(exprs1[1:50, ]))  # Genler satırda, örnekler sütunda
+Error in cor(t(exprs1[1:50, ])) : 'x' sayısal olmalı
+> library(pheatmap)
+Warning message:
+package ‘pheatmap’ was built under R version 4.3.3 
+> 
+> # Korelasyon matrisini ısı haritası olarak görselleştir
+> pheatmap(cor_matrix, 
++          main = "Correlation Matrix of Top 50 Genes", 
++          cluster_rows = TRUE, 
++          cluster_cols = TRUE)
+Hata: 'cor_matrix' nesnesi bulunamadı
+> # PCA analizi ve görselleştirme
+> pca <- prcomp(t(exprs1), scale. = TRUE)
+Error in colMeans(x, na.rm = TRUE) : 'x' sayısal olmalı
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> # GSE58951 için ilk 50 genin korelasyon matrisi 
+> cor_matrix <- cor(t(exprs1[1:50, ]))  # İlk 50 gen
+Error in cor(t(exprs1[1:50, ])) : 'x' sayısal olmalı
+> 
+> 
+> 
+> # Eksik değerleri kontrol et ve temizle
+> if (sum(is.na(exprs1)) > 0) {
++     exprs1 <- exprs1[complete.cases(exprs1), ]  # Eksik değer içeren genleri çıkar
++ }
+> 
+> # Veriyi sayısala çevir (gerekirse)
+> exprs1 <- as.matrix(apply(exprs1, 2, as.numeric))
+There were 22 warnings (use warnings() to see them)
+> 
+> # İlk 50 genin korelasyon matrisi
+> cor_matrix <- cor(t(exprs1[1:50, ]))
+> 
+> # Isı haritası
+> pheatmap(cor_matrix, 
++          main = "Correlation Matrix of Top 50 Genes", 
++          cluster_rows = TRUE, 
++          cluster_cols = TRUE)
+Error in hclust(d, method = method) : 
+  dış fonksiyon çağrısında NA/NaN/Inf (argüman 10)
+> 
+> 
+> sum(is.na(cor_matrix))  # NA değerlerin sayısını kontrol et
+[1] 2450
+> sum(is.nan(cor_matrix)) # NaN değerlerin sayısını kontrol et
+[1] 0
+> sum(is.infinite(cor_matrix)) # Inf değerlerin sayısını kontrol et
+[1] 0
+> 
+> # NA/NaN/Inf değerlerini sıfırla değiştir
+> cor_matrix[is.na(cor_matrix) | is.nan(cor_matrix) | is.infinite(cor_matrix)] <- 0
+> 
+> # Tüm satır ve sütunlarda geçerli değer olup olmadığını kontrol et
+> valid_rows <- apply(cor_matrix, 1, function(row) all(!is.na(row) & !is.nan(row) & !is.infinite(row)))
+> valid_cols <- apply(cor_matrix, 2, function(col) all(!is.na(col) & !is.nan(col) & !is.infinite(col)))
+> 
+> # Geçerli satır ve sütunları seç
+> cor_matrix <- cor_matrix[valid_rows, valid_cols]
+> 
+> # NA/NaN/Inf değerlerini kontrol et
+> sum(is.na(exprs1))       # NA değerlerin toplamını kontrol et
+[1] 20011684
+> sum(is.nan(exprs1))      # NaN değerlerin toplamını kontrol et
+[1] 0
+> sum(is.infinite(exprs1)) # Inf değerlerin toplamını kontrol et
+[1] 0
+> 
+> # Gerekirse bu değerleri sıfırla değiştir
+> exprs1[is.na(exprs1) | is.nan(exprs1) | is.infinite(exprs1)] <- 0
+> 
+> # Isı haritasını çiz
+> pheatmap(cor_matrix, 
++          main = "Correlation Matrix of Top 50 Genes", 
++          cluster_rows = TRUE, 
++          cluster_cols = TRUE)
+> 
+> # Eksik değerleri kontrol et ve temizle
+> if (sum(is.na(exprs1)) > 0) {
++     exprs1 <- exprs1[complete.cases(exprs1), ]  # Eksik değer içeren genleri çıkar
++ }
+> 
+> # Veriyi sayısala çevir (gerekirse)
+> exprs1 <- as.matrix(apply(exprs1, 2, as.numeric))
+> 
+> # İlk 50 genin korelasyon matrisi
+> cor_matrix <- cor(t(exprs1[1:50, ]))
+Warning message:
+In cor(t(exprs1[1:50, ])) : the standard deviation is zero
+> 
+> # Isı haritası
+> pheatmap(cor_matrix, 
++          main = "Correlation Matrix of Top 50 Genes", 
++          cluster_rows = TRUE, 
++          cluster_cols = TRUE)
+Error in hclust(d, method = method) : 
+  dış fonksiyon çağrısında NA/NaN/Inf (argüman 10)
+> # Varyansı sıfır olan satırları kontrol edin
+> non_zero_variance <- apply(exprs1[1:50, ], 1, sd) != 0
+> 
+> # Varyansı sıfır olanları çıkarın
+> filtered_exprs1 <- exprs1[1:50, ][non_zero_variance, ]
+> 
+> # Korelasyon matrisini oluşturun
+> cor_matrix <- cor(t(filtered_exprs1))
+> 
+> # Korelasyon matrisinde NA, NaN, veya Inf varsa bunları sıfırla değiştirin
+> cor_matrix[is.na(cor_matrix) | is.nan(cor_matrix) | is.infinite(cor_matrix)] <- 0
+> 
+> print(cor_matrix)
+<0 x 0 matrix>
+> 
+> # Gerekli kütüphane
+> library(pheatmap)
+> 
+> # İlk 50 genin varyansını kontrol edin
+> non_zero_variance <- apply(exprs1[1:50, ], 1, sd) != 0
+> 
+> # Varyansı sıfır olan genleri çıkarın
+> filtered_exprs1 <- exprs1[1:50, ][non_zero_variance, ]
+> 
+> # Korelasyon matrisini hesaplayın
+> cor_matrix <- cor(t(filtered_exprs1))
+> 
+> # NA/NaN/Inf değerlerini temizleyin
+> cor_matrix[is.na(cor_matrix) | is.nan(cor_matrix) | is.infinite(cor_matrix)] <- 0
+> 
+> # Isı haritasını oluşturun
+> pheatmap(cor_matrix, 
++          main = "Correlation Matrix of Top 50 Genes", 
++          cluster_rows = TRUE, 
++          cluster_cols = TRUE)
+Error in hclust(d, method = method) : must have n >= 2 objects to cluster
+> # Filtrelenmiş veri setinin boyutunu kontrol edin
+> dim(filtered_exprs1)
+[1]  0 22
+> 
+> # Çok düşük varyanslı genler için eşik belirleyin
+> threshold <- 1e-6  # Küçük bir eşik belirleyebilirsiniz
+> non_zero_variance <- apply(exprs1[1:50, ], 1, sd) > threshold
+> 
+> # Yeni filtrelenmiş veri
+> filtered_exprs1 <- exprs1[1:50, ][non_zero_variance, ]
+> 
+> # İlk 100 gen için varyans kontrolü
+> non_zero_variance <- apply(exprs1[1:100, ], 1, sd) != 0
+> filtered_exprs1 <- exprs1[1:100, ][non_zero_variance, ]
+> 
+> # Gerekli kütüphane
+> library(pheatmap)
+> 
+> # Çok düşük varyanslı genler için eşik belirleyin
+> threshold <- 1e-6  # Küçük bir eşik
+> non_zero_variance <- apply(exprs1[1:100, ], 1, sd) > threshold
+> 
+> # Filtrelenmiş veri
+> filtered_exprs1 <- exprs1[1:100, ][non_zero_variance, ]
+> 
+> # Korelasyon matrisini hesaplayın
+> cor_matrix <- cor(t(filtered_exprs1))
+> 
+> # NA/NaN/Inf değerlerini temizleyin
+> cor_matrix[is.na(cor_matrix) | is.nan(cor_matrix) | is.infinite(cor_matrix)] <- 0
+> 
+> # Korelasyon matrisini kontrol edin
+> print(cor_matrix)
+<0 x 0 matrix>
+> 
+> # Eğer matris yeterince büyükse, ısı haritası oluşturun
+> if (nrow(cor_matrix) >= 2) {
++     pheatmap(cor_matrix, 
++              main = "Correlation Matrix of Top 100 Genes", 
++              cluster_rows = TRUE, 
++              cluster_cols = TRUE)
++ } else {
++     print("Not enough genes to perform clustering.")
++ }
+[1] "Not enough genes to perform clustering."
+> 
+> # Daha geniş gen kümesi seçin
+> threshold <- 1e-8  # Daha düşük eşik
+> non_zero_variance <- apply(exprs1, 1, sd) > threshold
+> filtered_exprs1 <- exprs1[non_zero_variance, ]
+> 
+> # Korelasyon matrisini oluşturun
+> if (nrow(filtered_exprs1) >= 2) {
++     cor_matrix <- cor(t(filtered_exprs1))
++     cor_matrix[is.na(cor_matrix) | is.nan(cor_matrix) | is.infinite(cor_matrix)] <- 0
++     
++     # Isı haritasını oluşturun
++     if (nrow(cor_matrix) >= 2) {
++         pheatmap(cor_matrix, 
++                  main = "Correlation Matrix of Filtered Genes", 
++                  cluster_rows = TRUE, 
++                  cluster_cols = TRUE)
++     } else {
++         print("Not enough genes to perform clustering.")
++     }
++ } else {
++     print("Not enough genes with non-zero variance.")
++ }
+[1] "Not enough genes with non-zero variance."
+> 
+> 
+> # Daha geniş gen kümesi seçin
+> threshold <- 1e-8  # Daha düşük eşik
+> non_zero_variance <- apply(exprs1, 1, sd) > threshold
+> filtered_exprs1 <- exprs1[non_zero_variance, ]
+> 
+> # Korelasyon matrisini oluşturun
+> if (nrow(filtered_exprs1) >= 2) {
++     cor_matrix <- cor(t(filtered_exprs1))
++     cor_matrix[is.na(cor_matrix) | is.nan(cor_matrix) | is.infinite(cor_matrix)] <- 0
++     
++     # Isı haritasını oluşturun
++     if (nrow(cor_matrix) >= 2) {
++         pheatmap(cor_matrix, 
++                  main = "Correlation Matrix of Filtered Genes", 
++                  cluster_rows = TRUE, 
++                  cluster_cols = TRUE)
++     } else {
++         print("Not enough genes to perform clustering.")
++     }
++ } else {
++     print("Not enough genes with non-zero variance.")
++ }
+[1] "Not enough genes with non-zero variance."
+> 
+> pheatmap(cor_matrix, 
++          main = "Correlation Matrix of Filtered Genes", 
++          cluster_rows = TRUE, 
++          cluster_cols = TRUE)
+Error in hclust(d, method = method) : must have n >= 2 objects to cluster
